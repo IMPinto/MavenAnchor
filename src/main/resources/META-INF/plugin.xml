@@ -1,15 +1,37 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+
 <idea-plugin>
+
     <id>com.github.impinto.mavenanchor</id>
+
     <name>MavenAnchor</name>
+
     <vendor>impinto</vendor>
+
+
 
     <depends>com.intellij.modules.platform</depends>
 
+
+
+    <depends>org.jetbrains.idea.maven</depends>
+
+
+
     <resource-bundle>messages.MyBundle</resource-bundle>
 
+
+
     <extensions defaultExtensionNs="com.intellij">
+
         <toolWindow factoryClass="com.github.impinto.mavenanchor.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
-        <postStartupActivity implementation="com.github.impinto.mavenanchor.startup.MyProjectActivity" />
+
+        <postStartupActivity implementation="com.github.mavenanchor.MavenSetupActivity"/>
+
+        <projectConfigurable instance="com.github.mavenanchor.MavenAnchorConfigurable"
+
+                             displayName="Maven Anchor Settings"/>
+
     </extensions>
+
 </idea-plugin>
